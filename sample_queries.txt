@@ -1,0 +1,15 @@
+-- one
+SELECT DISTINCT u.user_id, u.username
+FROM users u
+INNER JOIN workflows w ON u.user_id = w.user_id
+INNER JOIN text_node tn ON w.workflow_id = tn.workflow_id;
+
+-- two
+SELECT node_id, node_alias, text_data FROM text_field_nodes WHERE workflow_id = 1;
+
+-- three
+SELECT u.user_id, u.username, w.workflow_id, w.workflow_name, COUNT(tn.node_id) AS node_count
+FROM users u
+INNER JOIN workflows w ON u.user_id = w.user_id
+LEFT JOIN text_node tn ON w.workflow_id = tn.workflow_id
+GROUP BY u.user_id, w.workflow_id;

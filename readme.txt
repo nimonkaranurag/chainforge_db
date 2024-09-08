@@ -1,0 +1,2 @@
+the SQL script is riddled with INSERT operations commented --test or --error etc. these are used as test prompts for the triggers.
+you will notice a unique error message when attempting INSERT operations labelled as such.
